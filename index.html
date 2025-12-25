@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>SOS Emergency</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: "Segoe UI", sans-serif;
+}
+
+body {
+background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+min-height: 100vh;
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.container {
+width: 90%;
+max-width: 400px;
+text-align: center;
+}
+
+.logo {
+font-size: 28px;
+font-weight: bold;
+margin-bottom: 6px;
+}
+
+.tagline {
+font-size: 14px;
+opacity: 0.8;
+margin-bottom: 25px;
+}
+
+.sos-wrapper {
+position: relative;
+display: inline-block;
+}
+
+.sos-button {
+width: 220px;
+height: 220px;
+border-radius: 50%;
+background: radial-gradient(circle at top, #ff4b4b, #b30000);
+border: none;
+color: white;
+font-size: 36px;
+font-weight: bold;
+cursor: pointer;
+box-shadow: 0 0 40px rgba(255, 0, 0, 0.6);
+}
+
+.sos-button.holding {
+background: radial-gradient(circle at top, #ff9b9b, #ff0000);
+}
+
+.countdown {
+margin-top: 15px;
+font-size: 18px;
+opacity: 0.9;
+height: 24px;
+}
+
+.info {
+margin-top: 30px;
+font-size: 14px;
+line-height: 1.6;
+opacity: 0.85;
+}
+
+.footer {
+margin-top: 20px;
+font-size: 12px;
+opacity: 0.6;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<div class="logo">🚨 SOS Emergency</div>
+<div class="tagline">Hold the button for 3 seconds</div>
+
+<div class="sos-wrapper">
+<button
+class="sos-button"
+id="sosBtn"
+ontouchstart="startHold()"
+ontouchend="cancelHold()"
+onmousedown="startHold()"
+onmouseup="cancelHold()"
+onmouseleave="cancelHold()"
+>
+SOS
+</button>
+</div>
+
+<div class="countdown" id="countdownText"></div>
+
+<div class="info">
+Use only in real emergencies.<br />
+Your location and audio will be shared.
+</div>
+
+<div class="footer">
+Location & microphone permission required
+</div>
+</div>
+
+<audio id="alarm" src="alarm.mp3" loop></audio>
+<script src="script.js"></script>
+
+</body>
+</html>
